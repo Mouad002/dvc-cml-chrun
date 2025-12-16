@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install "dvc[gdrive]==3.63.0"
-          pip install cml # si pas dans requirements.txt
+          # pip install cml # si pas dans requirements.txt
 
       - name: Configure DVC remote for Google Drive (OAuth user creds)
         run: |
