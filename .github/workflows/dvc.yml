@@ -40,7 +40,7 @@ jobs:
           dvc remote modify --local new_gdrive gdrive_client_secret "${{ secrets.GDRIVE_CLIENT_SECRET }}"
           # Diagnostic utile
           dvc remote list
-          dvc config --local
+          # dvc config --local
 
       - name: Pull data & models from DVC remote (Drive)
         run: |
