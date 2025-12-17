@@ -67,7 +67,7 @@ num_pipeline = Pipeline(steps=[
 categ_pipeline = Pipeline(steps=[
                         ('selector', DataFrameSelector(categ_cols)),
                         ('imputer', SimpleImputer(strategy='most_frequent')),
-                        ('ohe', OneHotEncoder(drop='first', sparse_output=False))
+                        ('ohe', OneHotEncoder(drop='first', sparse=False))
                     ])
 
 
