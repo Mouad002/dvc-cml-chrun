@@ -56,8 +56,6 @@ jobs:
 
       - name: Pull data & models from DVC remote (Drive)
         run: |
-          mkdir -p data
-          mkdir -p models
           dvc pull -v
 
       - name: Verify Data File Existence
