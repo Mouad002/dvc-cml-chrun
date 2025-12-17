@@ -25,10 +25,22 @@ jobs:
 
       - name: Install dependencies (Python, DVC, CML)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install "dvc[gdrive]==3.63.0"
-          # pip install cml # si pas dans requirements.txt
+            # python -m pip install --upgrade pip
+            # pip install -r requirements.txt
+            # pip install "dvc[gdrive]==3.63.0"
+            # # pip install cml # si pas dans requirements.txt
+
+            python -m pip install --upgrade pip
+          
+            # 1. Force a clean reinstall/upgrade of NumPy first
+            pip install --no-cache-dir --force-reinstall numpy
+          
+            # 2. Force a clean reinstall of all other packages (including sklearn/imblearn)
+            # This ensures they are compiled against the newly installed NumPy.
+            pip install --no-cache-dir --force-reinstall -r requirements.txt
+            # Install DVC/CML utilities separately
+            pip install "dvc[gdrive]==3.63.0"
+            # pip install cml # si pas dans requirements.txt
 
       - name: Configure DVC remote for Google Drive (OAuth user creds)
         run: |
